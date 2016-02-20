@@ -2,13 +2,13 @@
 lock '3.4.0'
 
 set :application, 'groezrock'
-set :repo_url, 'git@github.com/krettan/groezrock.git'
+set :repo_url, 'https://github.com/krettan/groezrock.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-# set :deploy_to, '/var/www/my_app_name'
+set :deploy_to, '/var/www/groezrock/code'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -35,6 +35,12 @@ set :repo_url, 'git@github.com/krettan/groezrock.git'
 # set :keep_releases, 5
 
 namespace :deploy do
+  desc 'Restart application'
+  task :restart do
+    invoke 'pm2:restart'
+  end
+
+  after :publishing, :restart
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
