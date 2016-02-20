@@ -1,0 +1,23 @@
+{
+  "name": "groezrock",
+  "description": "groezrock site in swedish",
+  "main": "app.js",
+  "authors": [
+    "krettan"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "jquery.countdown": "^2.1.0"
+  }
+}

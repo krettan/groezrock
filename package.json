@@ -1,0 +1,14 @@
+{
+  "name": "groezrock",
+  "version": "1.0.0",
+  "description": "groezrock site in swedish",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "krettan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

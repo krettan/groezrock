@@ -1,0 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
+
+body {
+  font-family: 'Permanent Marker', 'Arial', cursive;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-image: url("/images/background.jpg");
+}
+
+.container {
+  text-align: center;
+  margin: 2rem 4rem;
+  padding: 2rem 2rem 4rem;
+  background: rgba(255,255,255,0.7);
+  font-size: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: #ebebeb;
+}
+
+#countdown {
+  margin-bottom: 3rem;
+}
