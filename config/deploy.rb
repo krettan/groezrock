@@ -27,7 +27,6 @@ set :deploy_to, '/var/www/groezrock/code'
 
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-set :linked_dirs, %w{node_modules bower_components}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -36,18 +35,6 @@ set :linked_dirs, %w{node_modules bower_components}
 # set :keep_releases, 5
 
 namespace :deploy do
-  desc 'Install bower and npm dependencies'
-  task :bower_and_npm_install do 
-    on roles(:app), in: :sequence, wait: 5 do
-      within release_path do 
-        execute :npm, "install"
-        execute :bower, "install"
-      end
-    end
-  end
-
-  before :publishing, :bower_and_npm_install
-
   desc 'Restart application'
   task :restart do
     invoke 'pm2:restart'
