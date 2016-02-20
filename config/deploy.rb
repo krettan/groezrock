@@ -3,8 +3,7 @@ lock '3.4.0'
 
 set :application, 'groezrock'
 set :repo_url, 'https://github.com/krettan/groezrock.git'
-
-set :bower_flags, '--verbose'
+set :filter, :roles => %w{app web}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -43,6 +42,20 @@ namespace :deploy do
   end
 
   after :publishing, :restart
+
+
+  desc 'install asset dependencies'
+  task :assets_install do
+    on roles(:all), in: :groups do
+      within release_path do
+        execute :bower, 'install', '--quiet --no-interactive'
+        execute :npm, 'install', '--production --silent --no-spin'
+      end
+    end
+  end
+
+  before 'deploy:updated', 'deploy:assets_install'
+
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
