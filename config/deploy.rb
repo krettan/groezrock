@@ -4,6 +4,8 @@ lock '3.4.0'
 set :application, 'groezrock'
 set :repo_url, 'https://github.com/krettan/groezrock.git'
 
+set :bower_flags, '--verbose'
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

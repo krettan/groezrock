@@ -8,6 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 server 'groezrock.se', user: 'groezrock', roles: %{web app}
 set :branch, 'master'
+set :bower_flags, '--verbose'
 
 
 # role-based syntax
